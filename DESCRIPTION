@@ -1,0 +1,41 @@
+Package: scPDSIr
+Type: Package
+Title: Calculation of the Conventional and Self-Calibrating Palmer
+        Drought Severity Index from gridded data
+Version: 0.1.0
+Date: April 2020
+Description: Calculating the monthly conventional and self-calibrating Palmer
+    Drought Severity Index (scPDSI) using gridded precipitation and potential
+    evapotranspiration data. 
+    This is a modified version of scPDSI CRAN package adapted to better suit gridded 
+    data supplied by the package gridclimind.
+    The function to calculate PDSI is based on the C++ source codes 
+    developed by Nathan Wells, Steve Goddard and Michael J. Hayes,
+    University of Nebraska-Lincoln.
+    Reference: Palmer W. (1965). Meteorological drought.
+    U.s.department of Commerce Weather Bureau Research Paper,
+    <https://www.ncdc.noaa.gov/temp-and-precip/drought/docs/palmer.pdf>;
+    Wells N., Goddard S., Hayes M. J. (2004). A Self-Calibrating Palmer Drought Severity Index.
+    Journal of Climate, 17(12):2335-2351, <DOI:10.1175/1520-0442(2004)017%3C2335:ASPDSI%3E2.0.CO;2>.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 2.10)
+Imports: stats, Rcpp (>= 0.12.0)
+URL: https://github.com/
+BugReports: https://github.com/
+RoxygenNote: 7.0.2
+LinkingTo: Rcpp
+NeedsCompilation: yes
+Packaged: 2018-11-18 04:45:29 UTC; vicerTi
+Author of modified version: Colin Harpham
+Original Authors od scPDSI: Ruida Zhong [aut, cre],
+  Xiaohong Chen [aut, ctb],
+  Zhaoli Wang [aut, ctb],
+  Chengguang Lai [aut, ctb],
+  Steve Goddard [ctb],
+  Nathan Wells [ctb],
+  Mike Hayes [ctb]
+Maintainer: 
+Repository: GitHub
+
