@@ -2,11 +2,8 @@
 
 get_awc <- function(lat, lon)
 {
-  l <- length(lon)
-  awc <- array(dim=l)
-  
-  lon_index <- which.min(abs(lon - awc_lon))
-  
+  n_awc_lat <- length(awc_lat)
+  n_awc_lon <- length(awc_lon)
   # lat index
   lat_index <- which.min(abs(lat - awc_lat))
   # lon index
@@ -32,6 +29,11 @@ get_awc <- function(lat, lon)
       lat_index_new <- lat_index+new_coord[c,2]
       if(lat_index_new <= 0) lat_index_new <- lat_index
       
+      if(lon_index_new > n_awc_lon | lat_index_new > n_awc_lat)
+      {
+        awc <- 100
+        return(awc)
+      }
       check <- awc_dat[lon_index_new, lat_index_new]
       if(is.na(check) == 0)
       {
@@ -41,6 +43,7 @@ get_awc <- function(lat, lon)
       }
     }
   }
+  
   awc <- awc_dat[lon_index, lat_index]
   return(awc)
 }

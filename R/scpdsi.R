@@ -78,7 +78,7 @@ NULL
 #' 
 #' The following are provided as separate arguments:
 #' 
-#' AWC Available soil Water Capacity of the soil layer [mm]. This will be retrieved automatically
+#' AWC Available Water Capacity of the soil layer [mm]. This will be retrieved automatically
 #' from a 0.1 degree European grid and does not need to be supplied. However 
 #' if using a single site this can be specified if required.
 #'
@@ -100,7 +100,7 @@ pdsi <- function(indat, AWC = NULL, start = NULL, end = NULL, cal_start = NULL, 
   PE <- indat$pet
  
   ndat <- length(P)
-  if(sum(is.na(P)) == ndat)
+  if(sum(is.na(P)) > 0 | sum(is.na(PE)) > 0)
   {
     psdi <- array(dim=ndat, NA)
     return(psdi)

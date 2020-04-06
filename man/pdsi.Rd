@@ -56,7 +56,7 @@ lon = Longitude (degrees)
 
 The following are provided as separate arguments:
 
-AWC Available soil Water Capacity of the soil layer [mm]. This will be retrieved automatically
+AWC Available Water Capacity of the soil layer [mm]. This will be retrieved automatically
 from a 0.1 degree European grid and does not need to be supplied. However 
 if using a single site this can be specified if required.
 
