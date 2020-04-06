@@ -1,17 +1,17 @@
 
 
-get_swc <- function(lat, lon)
+get_awc <- function(lat, lon)
 {
   l <- length(lon)
-  swc <- array(dim=l)
+  awc <- array(dim=l)
   
-  lon_index <- which.min(abs(lon - swc_lon))
+  lon_index <- which.min(abs(lon - awc_lon))
   
   # lat index
-  lat_index <- which.min(abs(lat - swc_lat))
+  lat_index <- which.min(abs(lat - awc_lat))
   # lon index
-  lon_index <- which.min(abs(lon - swc_lon))
-  indat <- swc_dat[lon_index, lat_index]
+  lon_index <- which.min(abs(lon - awc_lon))
+  indat <- awc_dat[lon_index, lat_index]
   if(is.na(indat))
   {
     new_coord <- array(dim=c(8,2))
@@ -32,7 +32,7 @@ get_swc <- function(lat, lon)
       lat_index_new <- lat_index+new_coord[c,2]
       if(lat_index_new <= 0) lat_index_new <- lat_index
       
-      check <- swc_dat[lon_index_new, lat_index_new]
+      check <- awc_dat[lon_index_new, lat_index_new]
       if(is.na(check) == 0)
       {
         lon_index <- lon_index_new
@@ -41,6 +41,6 @@ get_swc <- function(lat, lon)
       }
     }
   }
-  swc <- swc_dat[lon_index, lat_index]
-  return(swc)
+  awc <- awc_dat[lon_index, lat_index]
+  return(awc)
 }

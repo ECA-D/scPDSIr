@@ -1,9 +1,17 @@
 Package: scPDSIr
 Type: Package
-Title: Calculation of the Conventional and Self-Calibrating Palmer
-        Drought Severity Index from gridded data
+Title: Calculation of the Self-Calibrating Palmer Drought Severity Index
+        from gridded data
 Version: 0.1.0
 Date: April 2020
+Authors@R: c(person("Colin", "Harpham", email = "c.harpham@uea.ac.uk", role = c("aut", "cre")),
+    person("Ruida", "Zhong", email = "zrd2017@163.com", role = c("aut", "cre")),
+    person("Xiaohong", "Chen", email = "eescxh@mail.sysu.edu.cn", role = c("aut", "ctb")),
+    person("Zhaoli", "Wang", email = "wangzhl@scut.edu.cn", role = c("aut", "ctb")),
+    person("Chengguang", "Lai", email = "laichg@scut.edu.cn", role = c("aut", "ctb")),
+    person("Steve", "Goddard", role = c("ctb")),
+    person("Nathan", "Wells", role = c("ctb")),
+    person("Mike", "Hayes", role = c("ctb")))
 Description: Calculating the monthly conventional and self-calibrating Palmer
     Drought Severity Index (scPDSI) using gridded precipitation and potential
     evapotranspiration data. 
@@ -20,22 +28,21 @@ Description: Calculating the monthly conventional and self-calibrating Palmer
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 2.10)
+Depends: R (>= 3.0)
 Imports: stats, Rcpp (>= 0.12.0)
 URL: https://github.com/
 BugReports: https://github.com/
 RoxygenNote: 7.0.2
 LinkingTo: Rcpp
 NeedsCompilation: yes
-Packaged: 2018-11-18 04:45:29 UTC; vicerTi
-Author of modified version: Colin Harpham
-Original Authors od scPDSI: Ruida Zhong [aut, cre],
+Author: Colin Harpham [aut, cre]
+  Ruida Zhong [aut, cre],
   Xiaohong Chen [aut, ctb],
   Zhaoli Wang [aut, ctb],
   Chengguang Lai [aut, ctb],
   Steve Goddard [ctb],
   Nathan Wells [ctb],
   Mike Hayes [ctb]
-Maintainer: 
+Maintainer: Colin Harpham <c.harpham@uea.ac.uk>
 Repository: GitHub
 

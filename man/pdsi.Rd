@@ -14,33 +14,11 @@ pdsi(
   sc = TRUE
 )
 }
-\arguments{
-\item{AWC}{Available soil water capacity of the soil layer [mm]. Default 100 mm.}
-
-\item{start}{Integer. Start year of the PDSI to be calculate default 1.}
-
-\item{end}{Integer. End year of the PDSI to be calculate.}
-
-\item{cal_start}{Integer. Start year of the calibrate period. Default is start year.}
-
-\item{cal_end}{Integer. End year of the calibrate period. Default is end year.}
-
-\item{sc}{Bool. Should use the self-calibrating procedure to calculate the climatical
-coefficient (K2 and duration coefficients). If not it would use the default
-parameters of Palmer (1965).}
-
-\item{P}{Monthly precipitation series without NA [mm]. Can be a time series.}
-
-\item{PE}{Monthly potential evapotranspiration corresponding to the precipitation
-series. Can be calculated by the Penman-Monteith or the Thonthwate
-equation [mm].}
-}
 \value{
 This function return a vector of scpdsi.
 }
 \description{
-Calculating the monthly conventional Palmer Drought Severity Index
-             (PDSI) and Self-calibrating PDSI (scPDSI) using the precipitation
+Calculating the monthly Self-calibrating PDSI (scPDSI) using the precipitation
              and potential evapotranspiration.
 }
 \details{
@@ -60,42 +38,35 @@ Index (scPDSI). The scPDSI could automatically adjust the empirical constants
 in the PDSI computation with dynamically calculated values. Several works have
 proved that the scPDSI performs better in spatially comparison than the conventional
 PDSI. For more details please see the works of Wells et al. (2004).
-
-This function could also calculate the conventional PDSI with revised constants.
-Before the scPDSI appeared, the PDSI calculation has also been revised focusing
-on the local climate characteristics in many area around the world. Those
-constants could be reset by using the global options before calculating the PDSI
-e.g.:
-
-\preformatted{
-options(PDSI.coe.K1.1 = 1.6)
-}
-
-And calculation in the PDSI would be:
-\deqn{Ki0=coeK11 * lg(((PEi+Ri+ROi)/(Pi+Li)+coeK12)/Di)+coeK13}
-\deqn{Ki=coeK2/(\sum Dj*Kj) * Ki}
-\deqn{X[i]=p*X[i-1]+q*Z[i]}
-
-\eqn{coeK11}, \eqn{coeK12}, \eqn{coeK13}, \eqn{coeK2}, \eqn{p}, and \eqn{q} are
-corresponding to \code{PDSI.coe.K1.1}, \code{PDSI.coe.K1.2}, \code{PDSI.coe.K1.3},
-\code{PDSI.coe.K2}, \code{PDSI.p}, and \code{PDSI.q}, respectively.
-
-For example, in a national standard in China about meteorological drought level
-(GB/T 20481-2017), the PDSI was revised by re-adjust the constants in the
-calculation. To use the PDSI based on this standard should set the global
-options of R as follows:
-
-\preformatted{
-options(PDSI.coe.K1.1 = 1.6)
-options(PDSI.coe.K1.3 = 0.4)
-options(PDSI.coe.K2 = 16.84)
-options(PDSI.p = 0.755)
-options(PDSI.q = 1/1.63)
-}
 }
 \examples{
-library(scPDSIr)
 
+library(scPDSIr)
+scpdsi(indat,  start, end, cal_start, cal_end)
+Where the dataframe "indat" contains the following variables:
+
+P = Monthly precipitation series without NA [mm]. Can be a time series.
+
+PE = Monthly potential evapotranspiration corresponding to the precipitation
+           series. Can be calculated by the Penman-Monteith or the Thonthwate
+           equation [mm].
+lat = Latitude  (degrees)
+
+lon = Longitude (degrees)
+
+The following are provided as separate arguments:
+
+AWC Available soil Water Capacity of the soil layer [mm]. This will be retrieved automatically
+from a 0.1 degree European grid and does not need to be supplied. However 
+if using a single site this can be specified if required.
+
+start Integer. Start year of the PDSI to be calculated default 1.
+
+end Integer. End year of the PDSI to be calculated.
+
+cal_start Integer. Start year of the calibrate period. Default is start year.
+
+cal_end Integer. End year of the calibrate period. Default is end year.
 
 }
 \references{
